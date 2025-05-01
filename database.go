@@ -20,7 +20,6 @@ var database_pengguna = [max_pengguna]pengguna{
 
 //database pengguna
 
-const max_startup int = 24
 const max_anggota int = 12
 const max_team int = 6
 
@@ -43,6 +42,9 @@ type startup struct {
 	total_pendanaan int
 	daftar_team     [max_team]team
 }
+
+//database startup
+const max_startup int = 24
 
 var database_startup = [10]startup{
 	// Blok data 1
