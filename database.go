@@ -1,6 +1,6 @@
 package main
 
-//PERCOBAAN GIT HUB APAKAH BERHASIL
+//Percobaan KE dua apakah berhasil
 //database pengguna
 
 const max_pengguna int = 255
