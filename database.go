@@ -45,8 +45,8 @@ type Anggota struct {
 	Posisi      string
 }
 
-var StartupTerdaftar int = 2
-var DatabaseStartup [10]Startup
+var StartupTerdaftar int
+var DatabaseStartup [maxStartup]Startup
 
 //[END] database Startup
 
@@ -422,6 +422,6 @@ func masukanDataDummy() {
 			},
 		},
 	}
-
+	StartupTerdaftar = 10
 	// [END] Dummy Startup
 }
