@@ -4,24 +4,29 @@ import "fmt"
 
 func main() {
 	masukanDataDummy()
+
 	for {
-		fmt.Println("1. Pendiri")
-		fmt.Println("2. Investor")
-		fmt.Println("3. Batal")
-		fmt.Print("piliih menu:")
 		var pilihan int
+		fmt.Println("===== Selamat Datang! =====")
+		fmt.Println("[1] Masuk")
+		fmt.Println("[2] Daftar")
+		fmt.Println("[0] Keluar")
+		fmt.Print("Pilihan: ")
 		fmt.Scanln(&pilihan)
+		fmt.Println("")
 
 		switch pilihan {
 		case 1:
-			dashboardPendiri(&DatabasePengguna[0])
+			masuk()
 		case 2:
-			dashboardInvestor(&DatabasePengguna[1])
-		case 3:
-			fmt.Println("batal")
+			daftar()
+		case 0:
+			fmt.Println("Sampai Jumpa Lagi!")
 			return
 		default:
-			fmt.Println("tidak ada opsi")
+			fmt.Println("Pilihan tidak valid.")
 		}
+
 	}
+
 }
