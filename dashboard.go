@@ -2,6 +2,16 @@ package main
 
 import "fmt"
 
+// MENU PENDIRI
+
+func buatStartup() {
+	tambahStartup()
+	fmt.Println("Tambahkan daftar team")
+	tambahTeam()
+	fmt.Println("Tambahkan daftar team")
+	tambahAnggota()
+}
+
 func dashboardPendiri(p *Pengguna) {
 	for {
 		var pilihan int
@@ -30,6 +40,8 @@ func dashboardPendiri(p *Pengguna) {
 		}
 	}
 }
+
+//[END] MENU PENDIRI
 
 func dashboardInvestor(p *Pengguna) {
 	for {
