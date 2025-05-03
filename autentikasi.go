@@ -21,7 +21,7 @@ func daftar() {
 	fmt.Scanln(&jenisPengguna)
 	fmt.Println("")
 
-	DatabasePengguna[JumlahTerdaftar].UserId = JumlahTerdaftar + 1
+	DatabasePengguna[JumlahTerdaftar].IdPengguna = JumlahTerdaftar + 1
 	DatabasePengguna[JumlahTerdaftar].Nama = nama
 	DatabasePengguna[JumlahTerdaftar].Email = email
 	DatabasePengguna[JumlahTerdaftar].KataSandi = kataSandi

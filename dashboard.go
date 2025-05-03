@@ -4,12 +4,31 @@ import "fmt"
 
 // MENU PENDIRI
 
-func buatStartup() {
-	tambahStartup()
-	fmt.Println("Tambahkan daftar team")
-	tambahTeam()
-	fmt.Println("Tambahkan daftar team")
-	tambahAnggota()
+func buatStartup(p *Pengguna) {
+	var (
+		s          *Startup
+		jumlahTeam int
+	)
+	tambahStartup(p, &DatabaseStartup, &StartupTerdaftar)
+	s = &DatabaseStartup[StartupTerdaftar-1]
+
+	fmt.Print("Jumlah tim yang ingin ditambahkan: ")
+	fmt.Scanln(&jumlahTeam)
+
+	for i := 0; i < jumlahTeam; i++ {
+		tambahTeam(s)
+		// Tambahkan anggota ke tim yang baru saja ditambahkan
+		// Temukan indeks tim yang baru ditambahkan (yang paling akhir)
+		for j := 0; j < MaxTeam; j++ {
+			if s.DaftarTeam[j].NamaTeam != "" {
+				// Jika ini tim terakhir (berikutnya kosong atau sudah di ujung)
+				if j == MaxTeam-1 || s.DaftarTeam[j+1].NamaTeam == "" {
+					tambahAnggota(&s.DaftarTeam[j])
+					break
+				}
+			}
+		}
+	}
 }
 
 func dashboardPendiri(p *Pengguna) {
@@ -27,11 +46,9 @@ func dashboardPendiri(p *Pengguna) {
 
 		switch pilihan {
 		case 1:
-			fmt.Println("Fitur A dalam Pengembangan")
-			// Masukkan suatu fungsi
+			buatStartup(p)
 		case 2:
-			fmt.Println("Fitur B dalam Pengembangan")
-			// Masukkan suatu fungsi
+			tampilkanStartup(p)
 		case 0:
 			fmt.Println("Keluar dari Dashboard Pendiri")
 			return
