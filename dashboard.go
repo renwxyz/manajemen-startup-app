@@ -43,6 +43,7 @@ func dashboardPendiri(p *Pengguna) {
 		fmt.Println("[0] Keluar")
 		fmt.Print("Pilih menu:")
 		fmt.Scanln(&pilihan)
+		fmt.Println("")
 
 		switch pilihan {
 		case 1:

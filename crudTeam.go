@@ -19,6 +19,7 @@ func tambahTeam(s *Startup) {
 	}
 
 	fmt.Println("Maksimum team tercapai.")
+	fmt.Println("")
 
 }
 

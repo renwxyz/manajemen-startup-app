@@ -18,6 +18,7 @@ func tambahStartup(p *Pengguna, db *[maxStartup]Startup, index *int) {
 	fmt.Scanln(&tahunBerdiri)
 	fmt.Print("Total Pendanaan: ")
 	fmt.Scanln(&totalPendanaan)
+	fmt.Println("")
 
 	db[*index] = Startup{
 		IdStartup:      *index + 1,
@@ -33,28 +34,33 @@ func tambahStartup(p *Pengguna, db *[maxStartup]Startup, index *int) {
 }
 
 func cetakStartup(s *Startup) {
-	fmt.Println("-------------------------------")
-	fmt.Printf("Nama Startup    : %s\n", s.NamaStartup)
-	fmt.Printf("Bidang Usaha    : %s\n", s.BidangUsaha)
-	fmt.Printf("Tahun Berdiri   : %d\n", s.TahunBerdiri)
-	fmt.Printf("Total Pendanaan : %d\n", s.TotalPendanaan)
-	fmt.Println("Daftar Tim:")
-	for i := 0; i < MaxTeam; i++ {
-		if s.DaftarTeam[i].NamaTeam != "" {
-			fmt.Printf("  - %s:\n", s.DaftarTeam[i].NamaTeam)
-			for j := 0; j < MaxAnggota; j++ {
-				if s.DaftarTeam[i].AnggotaTeam[j].NamaAnggota != "" {
-					fmt.Printf("    > %s (%s)\n", s.DaftarTeam[i].AnggotaTeam[j].NamaAnggota, s.DaftarTeam[i].AnggotaTeam[j].Posisi)
-				}
+	fmt.Println("========================================")
+	fmt.Printf("Startup #%d: %s\n", s.IdStartup, s.NamaStartup)
+	fmt.Printf("Bidang     : %s\n", s.BidangUsaha)
+	fmt.Printf("Tahun      : %d\n", s.TahunBerdiri)
+	fmt.Printf("Pendanaan  : %d\n", s.TotalPendanaan)
+	fmt.Printf("Pendiri ID : %d\n", s.IdPendiri)
+	fmt.Println("----------------------------------------")
+
+	for i, team := range s.DaftarTeam {
+		if team.NamaTeam == "" {
+			continue
+		}
+		fmt.Printf("[Team %d] %s\n", i+1, team.NamaTeam)
+		for _, anggota := range team.AnggotaTeam {
+			if anggota.NamaAnggota != "" {
+				fmt.Printf("  - %-8s (%s)\n", anggota.NamaAnggota, anggota.Posisi)
 			}
 		}
+		fmt.Println()
 	}
-	fmt.Println("-------------------------------")
+	fmt.Println("========================================")
+	fmt.Println("")
 }
 
 func tampilkanStartupSaya(p *Pengguna) {
+	var ada bool = false
 	fmt.Println("=== Daftar Startup Saya ===")
-	ada := false
 	for i := 0; i < StartupTerdaftar; i++ {
 		if DatabaseStartup[i].IdPendiri == p.IdPengguna {
 			cetakStartup(&DatabaseStartup[i])
@@ -63,6 +69,7 @@ func tampilkanStartupSaya(p *Pengguna) {
 	}
 	if !ada {
 		fmt.Println("Anda belum membuat startup.")
+		fmt.Println("")
 	}
 }
 
@@ -70,6 +77,7 @@ func tampilkanSeluruhStartup() {
 	fmt.Println("=== Daftar Seluruh Startup ===")
 	if StartupTerdaftar == 0 {
 		fmt.Println("Belum ada startup yang terdaftar.")
+		fmt.Println("")
 		return
 	}
 	for i := 0; i < StartupTerdaftar; i++ {
@@ -80,10 +88,11 @@ func tampilkanSeluruhStartup() {
 func tampilkanStartup(p *Pengguna) {
 	var pilihan int
 	fmt.Println("=== Menu Tampilkan Startup ===")
-	fmt.Println("1. Tampilkan Startup Saya")
-	fmt.Println("2. Tampilkan Seluruh Startup")
+	fmt.Println("[1] Tampilkan Startup Saya")
+	fmt.Println("[2] Tampilkan Seluruh Startup")
 	fmt.Print("Pilihan Anda: ")
 	fmt.Scanln(&pilihan)
+	fmt.Println("")
 
 	switch pilihan {
 	case 1:

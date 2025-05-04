@@ -15,6 +15,7 @@ func tambahAnggota(t *Team) {
 		fmt.Scanln(&nama)
 		fmt.Printf("Posisi anggota ke-%d: ", i+1)
 		fmt.Scanln(&posisi)
+		fmt.Println("")
 
 		// Masukkan ke slot kosong
 		for j := 0; j < MaxAnggota; j++ {
