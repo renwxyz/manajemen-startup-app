@@ -142,8 +142,9 @@ func uiDashboardInvestor(penggunaAktif *Pengguna, pilihan *int) {
 
 //
 
-func pesanEror(pesan string)      { fmt.Println("[EROR]" + pesan) }
-func pesanBerhasil(pesan string)  { fmt.Println("[BERHASIL]" + pesan) }
+func pesanEror(pesan string) { fmt.Println("[EROR]" + pesan) }
+
+//func pesanBerhasil(pesan string)  { fmt.Println("[BERHASIL]" + pesan) }
 func pesanInformasi(pesan string) { fmt.Println("[INFO]" + pesan) }
 
 // BUKAN UI DI BAWAH HEHEHE

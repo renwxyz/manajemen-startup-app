@@ -418,7 +418,7 @@ func urutNaikTotalPendanaan(db *[100]Startup) {
 }
 
 func urutNaikTahunBerdiri(db *[100]Startup) {
-	var validData, count = getDataStartupValid(&dbStartup)
+	var validData, count = getDataStartupValid(db)
 	var pilihan int
 	var selesai bool
 
@@ -445,7 +445,7 @@ func urutNaikTahunBerdiri(db *[100]Startup) {
 }
 
 func urutTurunTotalPendanaan(db *[100]Startup) {
-	var validData, count = getDataStartupValid(&dbStartup)
+	var validData, count = getDataStartupValid(db)
 
 	var pilihan int
 	var selesai bool
@@ -473,7 +473,7 @@ func urutTurunTotalPendanaan(db *[100]Startup) {
 	}
 }
 func urutTurunTahunBerdiri(db *[100]Startup) {
-	var validData, count = getDataStartupValid(&dbStartup)
+	var validData, count = getDataStartupValid(db)
 	var pilihan int
 	var selesai bool
 	for !selesai {
