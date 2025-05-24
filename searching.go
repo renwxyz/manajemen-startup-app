@@ -88,3 +88,56 @@ func binarySearchByBidangUsaha(cari string, db *[100]Startup, n int) {
 	}
 	uiFooterTable()
 }
+
+func cariStartup(db *[100]Startup) {
+	var pilihan int
+
+	for {
+
+		uiCariStartup(&pilihan)
+
+		switch pilihan {
+		case 1:
+			cariByNama(db)
+		case 2:
+			cariByBidangUsaha(db)
+		case 0:
+			return
+		default:
+			fmt.Println("Pilihan tidak valid.")
+		}
+
+	}
+
+}
+
+func cariByNama(db *[100]Startup) {
+	var (
+		nama    string
+		pilihan int
+	)
+
+	pilihan = 1
+	for pilihan == 1 {
+		uiInsertTeks("nama startup", &nama)
+		seqSearchByNamaStartup(nama, db)
+		uiOpsiLanjutan("Cari lagi", &pilihan)
+	}
+}
+
+func cariByBidangUsaha(db *[100]Startup) {
+	var (
+		bidangUsaha      string
+		pilihan          int
+		validData, count = getDataStartupValid(db)
+	)
+
+	pilihan = 1
+	for pilihan == 1 {
+		uiInsertTeks("bidang usaha", &bidangUsaha)
+
+		binarySearchByBidangUsaha(bidangUsaha, &validData, count)
+
+		uiOpsiLanjutan("Cari lagi", &pilihan)
+	}
+}
