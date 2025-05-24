@@ -2,20 +2,6 @@ package main
 
 import "fmt"
 
-func getDataStartupValid(db *[100]Startup) ([100]Startup, int) {
-	var hasil [100]Startup
-	var jumlahDataValid int = 0
-
-	for i := 0; i < len(db); i++ {
-		if db[i].IdStartup != 0 {
-			hasil[jumlahDataValid] = db[i]
-			jumlahDataValid++
-		}
-	}
-
-	return hasil, jumlahDataValid
-}
-
 func dashboardPendiri(penggunaAktif *Pengguna) {
 	for {
 		clearScreen()
@@ -43,7 +29,7 @@ func dashboardPendiri(penggunaAktif *Pengguna) {
 	}
 }
 
-//BLOK OPSI 1
+// BLOK OPSI 1
 func buatStartup(penggunaAktif *Pengguna, db *[100]Startup) {
 	var (
 		startupBaru *Startup
@@ -77,7 +63,7 @@ func buatStartup(penggunaAktif *Pengguna, db *[100]Startup) {
 
 //[END] BLOK OPSI 1
 
-//BLOK OPSI 2
+// BLOK OPSI 2
 func tampilkanStartupSaya(penggunaAktif *Pengguna, db *[100]Startup) {
 	for {
 		var indekTersedia int = cekIndeksDbStartup(db)
@@ -523,6 +509,8 @@ func dashboardInvestor(penggunaAktif *Pengguna) {
 			tampilkanSemuaStartup(&dbStartup)
 		case 2:
 			cariStartup(&dbStartup)
+		case 3:
+			laporanJumlahPerBidangUsaha(&dbStartup)
 		case 0:
 			fmt.Println("Keluar dari Dashboard investor")
 			return

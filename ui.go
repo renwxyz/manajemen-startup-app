@@ -139,14 +139,11 @@ func uiDashboardInvestor(penggunaAktif *Pengguna, pilihan *int) {
 	fmt.Printf("Halo, %s! Anda masuk sebagai Investor.\n", penggunaAktif.Nama)
 	fmt.Println("[1] Tampilkan Semua Startup")
 	fmt.Println("[2] Cari Startup")
+	fmt.Println("[3] Tampilkan laporan jumlah per bidang usaha")
 	fmt.Println("[0] Keluar")
 	fmt.Print("Pilih menu: ")
 	fmt.Scanln(pilihan)
 }
 
-//
-
-func pesanEror(pesan string) { fmt.Println("[EROR]" + pesan) }
-
-//func pesanBerhasil(pesan string)  { fmt.Println("[BERHASIL]" + pesan) }
+func pesanEror(pesan string)      { fmt.Println("[EROR]" + pesan) }
 func pesanInformasi(pesan string) { fmt.Println("[INFO]" + pesan) }

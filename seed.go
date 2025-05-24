@@ -1,5 +1,20 @@
 package main
 
+func seedPengguna() {
+	dbPengguna = [100]Pengguna{
+		{IdPengguna: 1, Nama: "Rendhi", Email: "rendhi@gmail.com", KataSandi: "123", JenisPengguna: "pendiri"},
+		{IdPengguna: 2, Nama: "Geugeut", Email: "geugeut@gmail.com", KataSandi: "456", JenisPengguna: "pendiri"},
+		{IdPengguna: 3, Nama: "John", Email: "john@gmail.com", KataSandi: "789", JenisPengguna: "investor"},
+		{IdPengguna: 4, Nama: "Mark", Email: "mark@gmail.com", KataSandi: "987", JenisPengguna: "investor"},
+		{IdPengguna: 5, Nama: "Alice", Email: "alice@example.com", KataSandi: "abc", JenisPengguna: "pengguna"},
+		{IdPengguna: 6, Nama: "Bob", Email: "bob@example.com", KataSandi: "def", JenisPengguna: "pengguna"},
+		{IdPengguna: 7, Nama: "Charlie", Email: "charlie@example.com", KataSandi: "ghi", JenisPengguna: "investor"},
+		{IdPengguna: 8, Nama: "Diana", Email: "diana@example.com", KataSandi: "jkl", JenisPengguna: "pengguna"},
+		{IdPengguna: 9, Nama: "Ethan", Email: "ethan@example.com", KataSandi: "mno", JenisPengguna: "pendiri"},
+		{IdPengguna: 10, Nama: "Fiona", Email: "fiona@example.com", KataSandi: "pqr", JenisPengguna: "pengguna"},
+	}
+}
+
 func seedStartup() {
 	dbStartup[0] = Startup{
 		IdStartup:      1,
