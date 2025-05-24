@@ -2,10 +2,6 @@ package main
 
 import "fmt"
 
-func clearScreen() {
-	fmt.Print("\033[H\033[2J")
-}
-
 func cekIndeksDbPengguna(db *[100]Pengguna) int {
 	for i := 0; i < len(db); i++ {
 		if db[i].IdPengguna == 0 {
