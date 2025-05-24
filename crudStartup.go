@@ -105,7 +105,7 @@ func tambahAnggota(tim *Tim) {
 }
 
 func tampilkanStartup(db *[100]Startup, i, count int) {
-	fmt.Printf(" %-15d %-15d %-15d %-25s %-30s %-20d %-20d \n", count, db[i].IdStartup, db[i].IdPendiri, db[i].NamaStartup, db[i].BidangUsaha, db[i].TahunBerdiri, db[i].TotalPendanaan)
+	fmt.Printf(" %-15d %-15d %-25s %-30s %-20d %-20d \n", count, db[i].IdStartup, db[i].NamaStartup, db[i].BidangUsaha, db[i].TahunBerdiri, db[i].TotalPendanaan)
 }
 
 func detailStartup(db *[100]Startup, i int) {
