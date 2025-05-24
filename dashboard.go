@@ -2,6 +2,20 @@ package main
 
 import "fmt"
 
+func getDataStartupValid(db *[100]Startup) ([100]Startup, int) {
+	var hasil [100]Startup
+	var jumlahDataValid int = 0
+
+	for i := 0; i < len(db); i++ {
+		if db[i].IdStartup != 0 {
+			hasil[jumlahDataValid] = db[i]
+			jumlahDataValid++
+		}
+	}
+
+	return hasil, jumlahDataValid
+}
+
 func dashboardPendiri(penggunaAktif *Pengguna) {
 	for {
 		clearScreen()
